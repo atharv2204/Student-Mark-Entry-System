@@ -24,7 +24,7 @@ public class Registration extends AppCompatActivity {
         teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(Registration.this, TeacherReg.class));
+                startActivity(new Intent(Registration.this, TeacherReg.class));
             }
         });
 
@@ -36,4 +36,6 @@ public class Registration extends AppCompatActivity {
         });
 
     }
+
+
 }

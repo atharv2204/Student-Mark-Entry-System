@@ -119,4 +119,9 @@ public class StudentHome extends AppCompatActivity {
         Intent intent=new Intent(StudentHome.this, Login.class);
         startActivity(intent);
     }
+
+    public void viewMarks(View view) {
+        Intent intent=new Intent(StudentHome.this, ViewMarks.class);
+        startActivity(intent);
+    }
 }

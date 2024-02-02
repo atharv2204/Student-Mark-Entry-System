@@ -61,6 +61,10 @@ public class Login extends AppCompatActivity {
                             startActivity(new Intent(Login.this, StudentHome.class));
                             finish();
                         }
+                        else {
+                            startActivity(new Intent(Login.this, TeacherReg.class));
+                            finish();
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -107,12 +111,15 @@ public class Login extends AppCompatActivity {
 //                                startActivity(intent);
 //                                finish();
                             }
+                            else{
+                                startActivity(new Intent(Login.this, TeacherReg.class));
+                                finish();
+                            }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            startActivity(new Intent(Login.this, TeacherReg.class));
-                            finish();
+
                             Toast.makeText(getApplicationContext(), "Login in Failed\nPlease Recheck Username and Password", Toast.LENGTH_SHORT).show();
                         }
                     });

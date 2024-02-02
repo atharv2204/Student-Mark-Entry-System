@@ -226,7 +226,7 @@
                         app:cardElevation="10dp">
 
                         <Spinner
-                            android:id="@+id/spinneryear"
+                            android:id="@+id/spinnerSubjects"
                             style="@style/CardView"
                             android:layout_width="250dp"
                             android:layout_height="50dp"
@@ -249,7 +249,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/button_design"
-            android:onClick="std_Reg">
+            android:onClick="tr_reg">
 
             <TextView
                 android:id="@+id/signupb"

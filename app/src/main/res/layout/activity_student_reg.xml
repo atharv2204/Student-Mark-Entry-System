@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentReg">
+
+    <TextView
+        android:id="@+id/registrationscrn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dodger_blue"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="Register"
+        android:letterSpacing="0.2"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/inputName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Name"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        android:textColorHint="@color/grey"
+        app:startIconDrawable="@android:drawable/ic_menu_edit"
+        app:startIconTint="#000000"
+        app:hintTextColor="@color/blue"
+        android:layout_below="@id/registrationscrn">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:inputType="textPersonName" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/inputEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Email"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        android:textColorHint="@color/grey"
+        app:startIconDrawable="@android:drawable/sym_action_email"
+        app:startIconTint="#000000"
+        app:hintTextColor="@color/blue"
+        android:layout_below="@id/inputName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:inputType="textEmailAddress" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--    <TextView-->
+    <!--        android:id="@+id/secTxt"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Mobile No"-->
+    <!--        android:layout_marginLeft="100dp" />-->
+    <!--    <EditText-->
+    <!--        android:id="@+id/txtEmail"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="100dp"-->
+    <!--        android:inputType="phone"-->
+    <!--        android:ems="10" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/inputMobile"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Mobile"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        android:textColorHint="@color/grey"
+        app:startIconDrawable="@android:drawable/stat_sys_phone_call"
+        app:startIconTint="#000000"
+        app:hintTextColor="@color/blue"
+        android:layout_below="@id/inputEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mob"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputPassword"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Password"
+        android:textColorHint="@color/grey"
+        app:hintTextColor="@color/blue"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconTint="@color/black"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black"
+        app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+        app:startIconTint="#171515"
+        android:layout_below="@id/inputMobile"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/semester"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter Semester"
+        android:textColorHint="@color/grey"
+        app:hintTextColor="@color/blue"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconTint="@color/black"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black"
+        app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+        app:startIconTint="#171515"
+        android:layout_below="@id/inputPassword"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:onClick="Register"
+        android:layout_below="@id/semester">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/dodger_blue"
+            android:elevation="5dp"
+            android:text="Register"
+            android:textSize="24sp"
+            android:letterSpacing="0.2"
+            android:shadowColor="@color/black"
+            android:shadowRadius="10"/>
+
+    </RelativeLayout>
+
+    <TextView android:id="@+id/lnkLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnRegister"
+        android:layout_marginTop="20dp"
+        android:text="Already Registered? Login here"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/dodger_blue" />
+
+</RelativeLayout>

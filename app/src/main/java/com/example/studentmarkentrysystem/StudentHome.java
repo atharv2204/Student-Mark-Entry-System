@@ -124,4 +124,14 @@ public class StudentHome extends AppCompatActivity {
         Intent intent=new Intent(StudentHome.this, ViewMarks.class);
         startActivity(intent);
     }
+
+    public void unit2(View view) {
+        Intent intent=new Intent(StudentHome.this, Unit2Marks.class);
+        startActivity(intent);
+    }
+
+    public void practical(View view) {
+        Intent intent=new Intent(StudentHome.this, PracticalMarks.class);
+        startActivity(intent);
+    }
 }

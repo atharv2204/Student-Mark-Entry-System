@@ -214,6 +214,7 @@
                         android:layout_height="100dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
+                        android:onClick="viewMarks"
                         android:backgroundTint="@color/white"
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardElevation="20dp">
@@ -221,7 +222,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:onClick="viewMarks">
+                            >
 
                             <ImageView
                                 android:layout_width="100dp"
@@ -248,6 +249,7 @@
                         android:layout_height="100dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
+                        android:onClick="unit2"
                         android:backgroundTint="@color/white"
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardElevation="20dp">
@@ -281,6 +283,7 @@
                         android:layout_height="100dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
+                        android:onClick="practical"
                         android:backgroundTint="@color/white"
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardElevation="20dp">

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.StudentMarkEntrySystem"
         tools:targetApi="31">
         <activity
+            android:name=".PracticalMarks"
+            android:exported="false" />
+        <activity
+            android:name=".Unit2Marks"
+            android:exported="false" />
+        <activity
             android:name=".MarksEntry"
             android:exported="false" />
         <activity

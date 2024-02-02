@@ -155,13 +155,12 @@
             android:text="SUBMIT"
             android:layout_centerHorizontal="true"
             android:paddingLeft="40dp"
-            android:paddingRight="40"
+            android:paddingRight="40dp"
             android:textSize="20sp"
             android:backgroundTint="@color/orange"
             android:shadowColor="@color/black"
-            android:shadowRadius="2dp"
             android:outlineAmbientShadowColor="@color/black"
-            android:elevation="10dp"/>
+            />
 
     </RelativeLayout>
 

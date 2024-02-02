@@ -1,25 +1,17 @@
 package com.example.studentmarkentrysystem;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -27,8 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class ViewMarks extends AppCompatActivity {
-
+public class Unit2Marks extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     LinearLayout linearLayout;
@@ -42,8 +33,7 @@ public class ViewMarks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_marks);
-
+        setContentView(R.layout.activity_unit2_marks);
 
         firestore= FirebaseFirestore.getInstance();
         context = getApplicationContext();
@@ -52,7 +42,7 @@ public class ViewMarks extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
         email=firebaseUser.getEmail();
 
-        CollectionReference collectionRef = firestore.collection("MarksUnit1");
+        CollectionReference collectionRef = firestore.collection("MarksUnit2");
 
         // Use get() to retrieve the documents in the collection
         collectionRef.get().addOnCompleteListener(task -> {
@@ -121,12 +111,12 @@ public class ViewMarks extends AppCompatActivity {
         linearLayoutInner.addView(textview);
 
 
+
         linearLayoutInner.setOrientation(LinearLayout.VERTICAL);
         cardview.addView(linearLayoutInner);
 
         linearLayout.addView(cardview);
 
     }
-
 
 }

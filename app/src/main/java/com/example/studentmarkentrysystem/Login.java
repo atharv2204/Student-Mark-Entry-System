@@ -69,8 +69,8 @@ public class Login extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        startActivity(new Intent(Login.this, TeacherReg.class));
-                        finish();
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }

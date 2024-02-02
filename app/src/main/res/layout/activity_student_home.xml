@@ -218,6 +218,28 @@
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardElevation="20dp">
 
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/unitest"
+                                android:src="@drawable/baseline_assignment_24"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Unit Test 1"
+                                android:textAlignment="center"
+                                android:layout_below="@id/unitest"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+
+                        </RelativeLayout>
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -229,6 +251,28 @@
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardElevation="20dp">
 
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/unitest2"
+                                android:src="@drawable/baseline_assignment_24"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Unit Test 2"
+                                android:textAlignment="center"
+                                android:layout_below="@id/unitest2"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+
+                        </RelativeLayout>
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -239,6 +283,29 @@
                         android:backgroundTint="@color/white"
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardElevation="20dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:id="@+id/prcs"
+                                android:src="@drawable/baseline_content_paste_24"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Practical"
+                                android:textAlignment="center"
+                                android:layout_below="@id/prcs"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+
+                        </RelativeLayout>
+
 
                     </androidx.cardview.widget.CardView>
 

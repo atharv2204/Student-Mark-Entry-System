@@ -16,6 +16,9 @@
             android:name=".TeacherReg"
             android:exported="false" />
         <activity
+            android:name=".StudentHome"
+            android:exported="false" />
+        <activity
             android:name=".StudentReg"
             android:exported="false" />
         <activity

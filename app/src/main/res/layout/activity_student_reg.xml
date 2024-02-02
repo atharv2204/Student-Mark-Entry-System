@@ -83,19 +83,7 @@
 
 
     </com.google.android.material.textfield.TextInputLayout>
-    <!--    <TextView-->
-    <!--        android:id="@+id/secTxt"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Mobile No"-->
-    <!--        android:layout_marginLeft="100dp" />-->
-    <!--    <EditText-->
-    <!--        android:id="@+id/txtEmail"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginLeft="100dp"-->
-    <!--        android:inputType="phone"-->
-    <!--        android:ems="10" />-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -143,8 +131,7 @@
         app:passwordToggleTint="@color/black"
         app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
         app:startIconTint="#171515"
-        android:layout_below="@id/inputMobile"
-        >
+        android:layout_below="@id/inputMobile">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pass"
@@ -172,8 +159,7 @@
         app:passwordToggleTint="@color/black"
         app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
         app:startIconTint="#171515"
-        android:layout_below="@id/inputPassword"
-        >
+        android:layout_below="@id/inputPassword">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sem"
@@ -186,7 +172,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnRegisterlayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="30dp"
@@ -211,7 +197,7 @@
     <TextView android:id="@+id/lnkLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnRegister"
+        android:layout_below="@id/btnRegisterlayout"
         android:layout_marginTop="20dp"
         android:text="Already Registered? Login here"
         android:gravity="center"

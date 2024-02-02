@@ -15,11 +15,13 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center"/>
+
     <Spinner
         android:id="@+id/spinnerSubjects"
         style="@style/CardView"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="249dp"
+        android:layout_height="51dp"
         android:layout_below="@+id/spinnerSem"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="-1dp" />
 </RelativeLayout>

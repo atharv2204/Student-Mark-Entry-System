@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553737225590",
+    "project_id": "student-marks-entry-system",
+    "storage_bucket": "student-marks-entry-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553737225590:android:c550f4fe325d084b7e6657",
+        "android_client_info": {
+          "package_name": "com.example.studentmarkentrysystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDorYrwfyzQJRRXF5MU1Zb8LbEE707LZD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -123,34 +123,32 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/password"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:onClick="login"
         android:layout_marginRight="30dp"
-        android:onClick="Login"
-        android:backgroundTint="@color/orange"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp">
+        android:background="@drawable/button_design">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/signupb"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:letterSpacing="0.15"
-            android:text="Log In"
-            android:textAlignment="center"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:letterSpacing="0.2"
+            android:text="Login"
             android:textColor="@color/white"
-            android:textSize="26dp"
+            android:textSize="24sp"
             android:textStyle="bold">
 
         </TextView>
 
-    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/gotoforgotpassword"

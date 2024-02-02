@@ -91,6 +91,7 @@
                         android:backgroundTint="@color/orange"
                         android:letterSpacing="0.2"
                         android:text="Profile"
+                        android:onClick="viewProfile"
                         android:textColor="@color/alice_blue"
                         android:textSize="22dp"
                         android:textStyle="bold" />

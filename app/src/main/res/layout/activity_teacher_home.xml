@@ -122,72 +122,103 @@
 
         </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile"
+            android:id="@+id/t1"
+            android:text="Enter Marks : "
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center|top"
+            android:textSize="40sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_below="@+id/t1"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+
+            android:paddingBottom="10dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/profile"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/ghost_white"
-            app:cardElevation="10dp">
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:onClick="enterMarks"
+            android:backgroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/black"
+            app:cardElevation="20dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:paddingBottom="20dp">
+                >
 
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/unitest"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/baseline_assignment_24"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/white"
-                    android:outlineAmbientShadowColor="@color/black"
-                    app:cardElevation="20dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:layout_width="wrap_content"
-                            android:layout_height="200dp"
-                            android:layout_marginLeft="20dp"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                            android:layout_centerHorizontal="true"
-                            android:id="@+id/mrknim"
-                            android:layout_gravity="center|end"
-                            app:lottie_rawRes="@raw/entermarks"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Enter Marks"
-                            android:textAlignment="center"
-                            android:layout_below="@id/mrknim"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:letterSpacing="0.2"
-                            android:textStyle="bold"
-                            android:paddingBottom="10dp"/>
+                    android:text="Unit Test "
+                    android:textAlignment="center"
+                    android:layout_below="@id/unitest"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
 
-                    </RelativeLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_margin="20dp"
+            android:onClick="practical"
+            android:backgroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/black"
+            app:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="90dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/prcs"
+                    android:src="@drawable/baseline_content_paste_24"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Practical"
+                    android:layout_centerHorizontal="true"
+                    android:textAlignment="center"
+                    android:layout_below="@id/prcs"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
     </RelativeLayout>
 
 

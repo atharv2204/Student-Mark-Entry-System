@@ -123,7 +123,7 @@ public class TeacherReg extends AppCompatActivity {
         user.put("MobileNo", MOBILE_NO);
         user.put("Password", Password);
         user.put("Semester", Semester);
-        user.put("Subject", Semester);
+        user.put("Subject", Subject);
 
         if (!EMAIL.matches(email_regex)) {
             email.setError("Enter correct Email");
@@ -163,4 +163,7 @@ public class TeacherReg extends AppCompatActivity {
         }
     }
 
+    public void back(View view) {
+        finish();
+    }
 }

@@ -117,21 +117,33 @@ public class StudentHome extends AppCompatActivity {
         firebaseAuth.signOut();
 
         Intent intent=new Intent(StudentHome.this, Login.class);
+        intent.putExtra("semester",semspinner.getSelectedItem().toString());
         startActivity(intent);
     }
 
     public void viewMarks(View view) {
-        Intent intent=new Intent(StudentHome.this, ViewMarks.class);
-        startActivity(intent);
+
+        try{
+            Intent intent=new Intent(StudentHome.this, ViewMarks.class);
+            intent.putExtra("semester",semspinner.getSelectedItem().toString());
+            startActivity(intent);
+        }
+        catch (Exception e){
+            Toast.makeText(StudentHome.this, ""+e, Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
     public void unit2(View view) {
         Intent intent=new Intent(StudentHome.this, Unit2Marks.class);
+        intent.putExtra("semester",semspinner.getSelectedItem().toString());
         startActivity(intent);
     }
 
     public void practical(View view) {
         Intent intent=new Intent(StudentHome.this, PracticalMarks.class);
+        intent.putExtra("semester",semspinner.getSelectedItem().toString());
         startActivity(intent);
     }
 }

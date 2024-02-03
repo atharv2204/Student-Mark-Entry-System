@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
                             finish();
                         }
                         else {
-                            startActivity(new Intent(Login.this, TeacherReg.class));
+                            startActivity(new Intent(Login.this, TeacherHome.class));
                             finish();
                         }
                     }

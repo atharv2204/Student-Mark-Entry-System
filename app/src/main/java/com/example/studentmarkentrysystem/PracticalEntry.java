@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,9 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.security.auth.Subject;
-
-public class MarksEntry extends AppCompatActivity {
+public class PracticalEntry extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     TextInputEditText uname, email,marks1,marks2;
     FirebaseFirestore db ;
@@ -32,15 +29,16 @@ public class MarksEntry extends AppCompatActivity {
     Context context;
     FirebaseUser firebaseUser;
     String[] prcs={"Fundamentals of ICT", "Engineering Graphics", "Workshop Practices","Business Communication", "Computer Peripheral and Hardware maintenance","Web Page Design with HTML","GUI pllication Development Using VB.Net"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_marks_entry);
+        setContentView(R.layout.activity_practical_entry);
 
         uname = (TextInputEditText) findViewById(R.id.name);
         email = (TextInputEditText) findViewById(R.id.mail);
         marks1 = (TextInputEditText) findViewById(R.id.marks1);
-        marks2 = (TextInputEditText) findViewById(R.id.marks2);
+
 
         db= FirebaseFirestore.getInstance();
         context = getApplicationContext();
@@ -48,11 +46,9 @@ public class MarksEntry extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
 
         temail=firebaseUser.getEmail();
-
     }
 
     public void addMarks(View view) {
-
         try {
             DocumentReference documentReference = db.collection("Teacher").document(temail);
             documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -74,51 +70,29 @@ public class MarksEntry extends AppCompatActivity {
 //        name=uname.getText().toString();
         String studentemail=email.getText().toString();
         String marks1Text = marks1.getText().toString();
-        String marks2Text = marks2.getText().toString();
 
 
         Map<String, Object> user = new HashMap<>();
         user.put(subject, marks1Text);
-try{
-        db.collection("MarksUnit1")
-                .document(studentemail)
-                .update(user).
-                addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-                    }
-                });}
-catch (Exception e){
-    Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-    Log.d("err",e.toString());
-
-}
-        Map<String, Object> user2 = new HashMap<>();
-        user2.put(subject, marks1Text);
         try{
-            db.collection("MarksUnit2")
+            db.collection("Practicals")
                     .document(studentemail)
-                    .update(user2).
+                    .update(user).
                     addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(MarksEntry.this, "Error"  , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PracticalEntry.this, "" + e, Toast.LENGTH_SHORT).show();
                         }
                     });}
         catch (Exception e){
-            Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+            Toast.makeText(PracticalEntry.this, "Error" , Toast.LENGTH_SHORT).show();
             Log.d("err",e.toString());
+
         }
         finish();
     }

@@ -6,11 +6,13 @@ import androidx.cardview.widget.CardView;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,6 +20,9 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PracticalMarks extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -28,8 +33,16 @@ public class PracticalMarks extends AppCompatActivity {
     TextView textview;
 
     CardView cardview;
-
-    String email;
+    String[] sem1 = {"English", "Basic Science", "Basic Mathematics", "Fundamentals of ICT", "Engineering Graphics", "Workshop Practice"};
+    String[] sem2 = {"Elements of Electrical Engineering", "Applied Mathematics", "Basic Electronics", "Programming in C", "Bussiness Communication using Computers", "Computer Peripheral and Hardware maintenance", "Web Page Design with HTML"};
+    String[] sem3 = {"Object Oriented Programming using C++", "Data Structure Using C", "GreenPeas", "Computer Graphics", "Database Management System", "Digital Techniques"};
+    String[] sem4 = {"Java Programming", "Software Engineering", "Data Communication and Computer Network", "Microprocessors", "GUI Application Development using VB.Net"};
+    String[] sem5 = {"Operating Systems", "Software Testing", "Client Side Scripting Language", "Enviromental Studies", "Advance Java Programming"};
+    String[] sem6 = {"Management", "Programming with Python", "Mobile Application Development", "ETI", "WBP", "Entrepreneurship Development"};
+    String[] prcs={"Fundamentals of ICT", "Engineering Graphics", "Workshop Practices","Business Communication", "Computer Peripheral and Hardware maintenance","Web Page Design with HTML","GUI pllication Development Using VB.Net"};
+    ArrayList<String> prcsList = new ArrayList<>(Arrays.asList(prcs));
+    ArrayList<String> semList;
+    String email,sems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +53,27 @@ public class PracticalMarks extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         email=firebaseUser.getEmail();
+
+        sems= getIntent().getStringExtra("semester");
+
+        if(sems.equals("1"))
+        {
+           semList = new ArrayList<>(Arrays.asList(sem1));
+        } else if (sems.equals("2")) {
+           semList = new ArrayList<>(Arrays.asList(sem2));
+        }
+        else if (sems.equals("3")) {
+           semList = new ArrayList<>(Arrays.asList(sem3));
+        }
+        else if (sems.equals("4")) {
+           semList = new ArrayList<>(Arrays.asList(sem4));
+        }
+        else if (sems.equals("5")) {
+            semList = new ArrayList<>(Arrays.asList(sem5));
+        }
+        else if (sems.equals("6")) {
+            semList = new ArrayList<>(Arrays.asList(sem6));
+        }
 
         CollectionReference collectionRef = firestore.collection("Practicals");
 
@@ -59,8 +93,14 @@ public class PracticalMarks extends AppCompatActivity {
                     for (String fieldName : document.getData().keySet()) {
                         // Access each field and its value
                         Object value = document.get(fieldName);
-                        addDataToView(fieldName,value.toString());
-                        System.out.println("Field: " + fieldName + ", Value: " + value);
+
+                        if(prcsList.contains(fieldName) && semList.contains(fieldName)){
+                            addDataToView(fieldName, value.toString());
+                            System.out.println("Field: " + fieldName + ", Value: " + value);
+                        }
+                        else {
+
+                        }
                     }
 
                     System.out.println("------------"); // Separating documents
@@ -116,5 +156,7 @@ public class PracticalMarks extends AppCompatActivity {
         linearLayout.addView(cardview);
 
     }
-
+    public void back(View view) {
+        finish();
+    }
 }

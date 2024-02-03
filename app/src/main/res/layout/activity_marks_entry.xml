@@ -34,7 +34,11 @@
             android:outlineAmbientShadowColor="@color/black"
             app:cardElevation="10dp"
             android:paddingTop="10dp">
-
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:onClick="back"
+                android:src="@drawable/baseline_arrow_back_24"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/aoasd"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/namefld"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Name"
@@ -92,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/namefld"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/emailfld"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Email"
@@ -121,10 +125,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/emailfld"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/marksfld"
+            android:layout_marginTop="10dp"
+            android:id="@+id/marksfld1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Enter Marks"
+            android:hint="Unit 1 Marks"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
             app:endIconMode="clear_text"
@@ -136,11 +140,39 @@
             app:hintTextColor="@color/blue">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/marks"
+                android:id="@+id/marks1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="18sp"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/marksfld1"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/marksfld2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Unit 2 Marks"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            android:textColorHint="@color/grey"
+            app:startIconTint="#000000"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            app:hintTextColor="@color/blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/marks2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:textSize="18sp" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -148,15 +180,16 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/marksfld"
+            android:layout_below="@id/marksfld2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="SUBMIT"
             android:layout_centerHorizontal="true"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:textSize="20sp"
+            android:onClick="addMarks"
             android:backgroundTint="@color/orange"
             android:shadowColor="@color/black"
             android:outlineAmbientShadowColor="@color/black"

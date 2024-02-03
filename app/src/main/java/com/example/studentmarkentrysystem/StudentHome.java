@@ -112,10 +112,15 @@ public class StudentHome extends AppCompatActivity {
     }
 
     public void viewProfile(View view) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        firebaseAuth.signOut();
 
-        Intent intent=new Intent(StudentHome.this, Profile.class);
-        intent.putExtra("semester",semspinner.getSelectedItem().toString());
+        Intent intent=new Intent(StudentHome.this, Login.class);
         startActivity(intent);
+        Toast.makeText(context,"Thanks for using!!",Toast.LENGTH_SHORT).show();
+//        Intent intent=new Intent(StudentHome.this, Profile.class);
+//        startActivity(intent);
     }
 
     public void viewMarks(View view) {

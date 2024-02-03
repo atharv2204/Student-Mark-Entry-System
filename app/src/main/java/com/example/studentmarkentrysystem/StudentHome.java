@@ -112,11 +112,8 @@ public class StudentHome extends AppCompatActivity {
     }
 
     public void viewProfile(View view) {
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-        firebaseAuth.signOut();
 
-        Intent intent=new Intent(StudentHome.this, Login.class);
+        Intent intent=new Intent(StudentHome.this, Profile.class);
         intent.putExtra("semester",semspinner.getSelectedItem().toString());
         startActivity(intent);
     }

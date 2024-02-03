@@ -75,4 +75,9 @@ public class TeacherHome extends AppCompatActivity {
         sem.setText("Subject:"+sems);
     }
 
+    public void lgt(View view) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        firebaseAuth.signOut();
+    }
 }

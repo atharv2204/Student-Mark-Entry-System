@@ -22,9 +22,6 @@
             android:name=".Unit2Marks"
             android:exported="false" />
         <activity
-            android:name=".MarksEntry"
-            android:exported="false" />
-        <activity
             android:name=".ViewMarks"
             android:exported="false" />
         <activity

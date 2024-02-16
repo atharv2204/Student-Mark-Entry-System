@@ -56,6 +56,33 @@ public class PracticalEntry extends AppCompatActivity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.exists()) {
                         subject = documentSnapshot.getString("Subject");
+
+                        String studentemail=email.getText().toString();
+                        String marks1Text = marks1.getText().toString();
+
+
+                        Map<String, Object> user = new HashMap<>();
+                        user.put(subject, marks1Text);
+                        try{
+                            db.collection("Practicals")
+                                    .document(studentemail)
+                                    .update(user).
+                                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(PracticalEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });}
+                        catch (Exception e){
+                            Toast.makeText(PracticalEntry.this, "Error"+e , Toast.LENGTH_SHORT).show();
+                            Log.d("err",e.toString());
+
+                        }
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -68,32 +95,7 @@ public class PracticalEntry extends AppCompatActivity {
             Toast.makeText(context, "Error occured", Toast.LENGTH_SHORT).show();
         }
 //        name=uname.getText().toString();
-        String studentemail=email.getText().toString();
-        String marks1Text = marks1.getText().toString();
 
-
-        Map<String, Object> user = new HashMap<>();
-        user.put(subject, marks1Text);
-        try{
-            db.collection("Practicals")
-                    .document(studentemail)
-                    .update(user).
-                    addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(PracticalEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-                        }
-                    });}
-        catch (Exception e){
-            Toast.makeText(PracticalEntry.this, "Error" , Toast.LENGTH_SHORT).show();
-            Log.d("err",e.toString());
-
-        }
         finish();
     }
     public void back(View view) {

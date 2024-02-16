@@ -28,7 +28,8 @@ public class MarksEntry extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     TextInputEditText uname, email,marks1,marks2;
     FirebaseFirestore db ;
-    String name, semail,temail,smarks1,smarks2,subject;
+    String name, semail,temail,smarks1,smarks2;
+    static String subject;
     Context context;
     FirebaseUser firebaseUser;
     String[] prcs={"Fundamentals of ICT", "Engineering Graphics", "Workshop Practices","Business Communication", "Computer Peripheral and Hardware maintenance","Web Page Design with HTML","GUI pllication Development Using VB.Net"};
@@ -60,6 +61,179 @@ public class MarksEntry extends AppCompatActivity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.exists()) {
                         subject = documentSnapshot.getString("Subject");
+
+                        String studentemail=email.getText().toString();
+                        String marks1Text = marks1.getText().toString();
+                        String marks2Text = marks2.getText().toString();
+
+//        Toast.makeText(context, "Error occured"+subject, Toast.LENGTH_SHORT).show();
+                        Map<String, Object> user = new HashMap<>();
+                        user.put(MarksEntry.subject, marks1Text);
+                        try{
+                            db.collection("MarksUnit1")
+                                    .document(studentemail)
+                                    .update(user).
+                                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(MarksEntry.this, "Error"  , Toast.LENGTH_SHORT).show();
+                                        }
+                                    });}
+                        catch (Exception e){
+                            Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+                            Log.d("err",e.toString());
+                        }
+//        try {
+//            DocumentReference documentReference = db.collection("MarksUnit1").document(studentemail);
+//            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                @Override
+//                public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                    if (documentSnapshot.exists()) {
+//                        if(documentSnapshot.getString(subject) != null) {
+//                            try {
+//                                db.collection("MarksUnit1")
+//                                        .document(studentemail)
+//                                        .update(user).
+//                                        addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                            @Override
+//                                            public void onSuccess(Void unused) {
+//                                                Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        }).addOnFailureListener(new OnFailureListener() {
+//                                            @Override
+//                                            public void onFailure(@NonNull Exception e) {
+//                                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        });
+//                            } catch (Exception e) {
+//                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_LONG).show();
+//                                Log.d("err", e.toString());
+//
+//                            }
+//                        }
+//                        else {
+//                            try {
+//                                db.collection("MarksUnit1")
+//                                        .document(studentemail)
+//                                        .set(user).
+//                                        addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                            @Override
+//                                            public void onSuccess(Void unused) {
+//                                                Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        }).addOnFailureListener(new OnFailureListener() {
+//                                            @Override
+//                                            public void onFailure(@NonNull Exception e) {
+//                                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_LONG).show();
+//                                            }
+//                                        });
+//                            } catch (Exception e) {
+//                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_LONG).show();
+//                                Log.d("err", e.toString());
+//
+//                            }
+//                        }
+//                    }
+//                }
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//                }
+//            });
+//        }
+//        catch (Exception e){
+//            Toast.makeText(context, "Error occured", Toast.LENGTH_SHORT).show();
+//        }
+//unit test 2 marks
+                        Map<String, Object> user2 = new HashMap<>();
+                        user2.put(MarksEntry.subject, marks2Text);
+
+//        try {
+//            DocumentReference documentReference = db.collection("MarksUnit2").document(studentemail);
+//            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                @Override
+//                public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                    if (documentSnapshot.exists()) {
+//                        if(documentSnapshot.getString(subject) != null) {
+//                            try {
+//                                db.collection("MarksUnit2")
+//                                        .document(studentemail)
+//                                        .update(user2).
+//                                        addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                            @Override
+//                                            public void onSuccess(Void unused) {
+//                                                Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        }).addOnFailureListener(new OnFailureListener() {
+//                                            @Override
+//                                            public void onFailure(@NonNull Exception e) {
+//                                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        });
+//                            } catch (Exception e) {
+//                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+//                                Log.d("err", e.toString());
+//
+//                            }
+//                        }
+//                        else {
+//                            try {
+//                                db.collection("MarksUnit2")
+//                                        .document(studentemail)
+//                                        .set(user2).
+//                                        addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                            @Override
+//                                            public void onSuccess(Void unused) {
+//                                                Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        }).addOnFailureListener(new OnFailureListener() {
+//                                            @Override
+//                                            public void onFailure(@NonNull Exception e) {
+//                                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        });
+//                            } catch (Exception e) {
+//                                Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+//                                Log.d("err", e.toString());
+//
+//                            }
+//                        }
+//                    }
+//                }
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//                }
+//            });
+//        }
+//        catch (Exception e){
+//            Toast.makeText(context, "Error occured", Toast.LENGTH_SHORT).show();
+//        }
+
+                        try{
+                            db.collection("MarksUnit2")
+                                    .document(studentemail)
+                                    .update(user2).
+                                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(MarksEntry.this, "Error"  , Toast.LENGTH_SHORT).show();
+                                        }
+                                    });}
+                        catch (Exception e){
+                            Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+                            Log.d("err",e.toString());
+                        }
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -72,54 +246,7 @@ public class MarksEntry extends AppCompatActivity {
             Toast.makeText(context, "Error occured", Toast.LENGTH_SHORT).show();
         }
 //        name=uname.getText().toString();
-        String studentemail=email.getText().toString();
-        String marks1Text = marks1.getText().toString();
-        String marks2Text = marks2.getText().toString();
 
-
-        Map<String, Object> user = new HashMap<>();
-        user.put(subject, marks1Text);
-try{
-        db.collection("MarksUnit1")
-                .document(studentemail)
-                .update(user).
-                addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-                    }
-                });}
-catch (Exception e){
-    Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-    Log.d("err",e.toString());
-
-}
-        Map<String, Object> user2 = new HashMap<>();
-        user2.put(subject, marks1Text);
-        try{
-            db.collection("MarksUnit2")
-                    .document(studentemail)
-                    .update(user2).
-                    addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(MarksEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(MarksEntry.this, "Error"  , Toast.LENGTH_SHORT).show();
-                        }
-                    });}
-        catch (Exception e){
-            Toast.makeText(MarksEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-            Log.d("err",e.toString());
-        }
         finish();
     }
     public void back(View view) {

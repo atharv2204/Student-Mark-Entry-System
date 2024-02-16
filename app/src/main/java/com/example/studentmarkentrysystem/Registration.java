@@ -38,4 +38,9 @@ public class Registration extends AppCompatActivity {
     }
 
 
+    public void back(View view) {
+        startActivity(new Intent(Registration.this, Login.class));
+        finish();
+
+    }
 }

@@ -37,24 +37,12 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        startActivity(new Intent(Login.this, MarksTable.class));
-        finish();
-
-
         uname = (TextInputEditText) findViewById(R.id.mail);
         pass = (TextInputEditText) findViewById(R.id.pass);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firestore= FirebaseFirestore.getInstance();
 
-        signup=findViewById(R.id.gotosignup);
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Login.this, Registration.class));
-            }
-        });
         if (firebaseUser!=null)
         {
             try {
@@ -84,6 +72,14 @@ public class Login extends AppCompatActivity {
             }
             finish();
         }
+
+        signup=findViewById(R.id.gotosignup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, Registration.class));
+            }
+        });
     }
 
 

@@ -5,14 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentReg">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/registrationscrn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/orange"
         android:layout_marginBottom="15dp"
         android:gravity="center"
@@ -34,7 +39,7 @@
         app:boxStrokeWidthFocused="2dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/black"
         android:textColorHint="@color/grey"
@@ -65,7 +70,7 @@
         app:boxStrokeWidthFocused="2dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/black"
         android:textColorHint="@color/grey"
@@ -80,6 +85,65 @@
             android:layout_height="match_parent"
             android:textSize="20sp"
             android:inputType="textEmailAddress" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/RollNo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Roll Number"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="5dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        android:textColorHint="@color/grey"
+        app:startIconDrawable="@drawable/baseline_confirmation_number_24"
+        app:startIconTint="#000000"
+        app:hintTextColor="@color/blue"
+        android:layout_below="@id/inputEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rno"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:inputType="number" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/enroll"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Enrollment Number"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="5dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        android:textColorHint="@color/grey"
+        app:startIconDrawable="@drawable/baseline_numbers_24"
+        app:startIconTint="#000000"
+        app:hintTextColor="@color/blue"
+        android:layout_below="@id/RollNo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enrol"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:inputType="number" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -107,14 +171,14 @@
         app:boxStrokeWidthFocused="2dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/black"
         android:textColorHint="@color/grey"
         app:startIconDrawable="@android:drawable/stat_sys_phone_call"
         app:startIconTint="#000000"
         app:hintTextColor="@color/blue"
-        android:layout_below="@id/inputEmail">
+        android:layout_below="@id/enroll">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/mob"
@@ -131,7 +195,7 @@
         android:id="@+id/inputPassword"
         android:layout_marginBottom="15dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="32dp"
         android:hint="Password"
         android:textColorHint="@color/grey"
@@ -160,7 +224,7 @@
         android:id="@+id/semester"
         android:layout_marginBottom="15dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="32dp"
         android:hint="Enter Semester"
         android:textColorHint="@color/grey"
@@ -189,7 +253,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/semester"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:onClick="std_Reg"
         android:layout_marginRight="30dp"
         android:background="@drawable/button_design">
@@ -214,7 +278,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnRegister"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:text="Already Registered? Login here"
         android:gravity="center"
         android:textSize="14dp"
@@ -222,5 +286,6 @@
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:textColor="@color/dodger_blue" />
-
+    </RelativeLayout>
+</ScrollView>
 </RelativeLayout>

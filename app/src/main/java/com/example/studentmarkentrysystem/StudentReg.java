@@ -25,8 +25,16 @@ public class StudentReg extends AppCompatActivity {
     FirebaseFirestore db;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
-    TextInputEditText name,email,mobile_no,pass,sem;
-    String NAME,EMAIL,MOBILE_NO,Password,Semester;
+    TextInputEditText name,email,mobile_no,pass,sem,rollno,enroll;
+    String NAME,EMAIL,ROLL_NO,ENROLL,MOBILE_NO,Password,Semester;
+    String[] prcs={"Fundamentals of ICT", "Engineering Graphics", "Workshop Practices","Business Communication", "Computer Peripheral and Hardware maintenance","Web Page Design with HTML","GUI pllication Development Using VB.Net"};
+    String[] sem1 = {"English", "Basic Science", "Basic Mathematics", "Fundamentals of ICT", "Engineering Graphics", "Workshop Practice"};
+    String[] sem2 = {"Elements of Electrical Engineering", "Applied Mathematics", "Basic Electronics", "Programming in C", "Bussiness Communication using Computers", "Computer Peripheral and Hardware maintenance", "Web Page Design with HTML"};
+    String[] sem3 = {"Object Oriented Programming using C++", "Data Structure Using C", "GreenPeas", "Computer Graphics", "Database Management System", "Digital Techniques"};
+    String[] sem4 = {"Java Programming", "Software Engineering", "Data Communication and Computer Network", "Microprocessors", "GUI Application Development using VB.Net"};
+    String[] sem5 = {"Operating Systems", "Software Testing", "Client Side Scripting Language", "Enviromental Studies", "Advance Java Programming"};
+    String[] sem6 = {"Management", "Programming with Python", "Mobile Application Development", "ETI", "WBP", "Entrepreneurship Development"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +42,8 @@ public class StudentReg extends AppCompatActivity {
 
         name=(TextInputEditText) findViewById(R.id.name);
         email=(TextInputEditText) findViewById(R.id.mail);
+        rollno=(TextInputEditText) findViewById(R.id.rno);
+        enroll=(TextInputEditText) findViewById(R.id.enrol);
         mobile_no=(TextInputEditText) findViewById(R.id.mob);
         pass=(TextInputEditText) findViewById(R.id.pass);
         sem=(TextInputEditText) findViewById(R.id.sem);
@@ -46,6 +56,8 @@ public class StudentReg extends AppCompatActivity {
     public void std_Reg(View view){
         NAME=name.getText().toString();
         EMAIL=email.getText().toString();
+        ROLL_NO=rollno.getText().toString();
+        ENROLL=enroll.getText().toString();
         MOBILE_NO=mobile_no.getText().toString();
         Password=pass.getText().toString();
         Semester=sem.getText().toString();
@@ -53,9 +65,27 @@ public class StudentReg extends AppCompatActivity {
         Map<String, Object> user = new HashMap<>();
         user.put("Name", NAME);
         user.put("Email", EMAIL);
+        user.put("RollNo", ROLL_NO);
+        user.put("Enroll", ENROLL);
         user.put("MobileNo", MOBILE_NO);
         user.put("Password", Password);
         user.put("Current Semester", Semester);
+
+        Map<String, Object> practicals = new HashMap<>();
+        Map<String, String> subjectsMap = new HashMap<>();
+
+        // Populate the map with subjects from each semester
+        addSubjectsToMap(subjectsMap, sem1);
+        addSubjectsToMap(subjectsMap, sem2);
+        addSubjectsToMap(subjectsMap, sem3);
+        addSubjectsToMap(subjectsMap, sem4);
+        addSubjectsToMap(subjectsMap, sem5);
+        addSubjectsToMap(subjectsMap, sem6);
+
+        // Populate the map with initial values of 0
+        for (String subject : prcs) {
+            practicals.put(subject, "0");
+        }
 
         if (!EMAIL.matches(email_regex)) {
             email.setError("Enter correct Email");
@@ -70,6 +100,48 @@ public class StudentReg extends AppCompatActivity {
             db.collection("Students")
                     .document(EMAIL)
                     .set(user).
+                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(StudentReg.this, "Created Account Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(StudentReg.this, ""+e, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            db.collection("MarksUnit1")
+                    .document(EMAIL)
+                    .set(subjectsMap).
+                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(StudentReg.this, "Created Account Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(StudentReg.this, ""+e, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            db.collection("MarksUnit2")
+                    .document(EMAIL)
+                    .set(subjectsMap).
+                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(StudentReg.this, "Created Account Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(StudentReg.this, ""+e, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            db.collection("Practicals")
+                    .document(EMAIL)
+                    .set(subjectsMap).
                     addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -97,7 +169,11 @@ public class StudentReg extends AppCompatActivity {
             });
         }
     }
-
+    private static void addSubjectsToMap(Map<String, String> subjectsMap, String[] subjects) {
+        for (String subject : subjects) {
+            subjectsMap.put(subject, "0");
+        }
+    }
     public void loginPage(View view) {
         Intent intent=new Intent(StudentReg.this, Login.class);
         startActivity(intent);

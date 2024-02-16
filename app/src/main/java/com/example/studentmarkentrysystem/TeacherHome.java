@@ -62,8 +62,16 @@ public class TeacherHome extends AppCompatActivity {
     }
 
     public void enterMarks(View view) {
-        Intent intent=new Intent(TeacherHome.this, MarksEntry.class);
-        startActivity(intent);
+        try{
+            Intent intent=new Intent(TeacherHome.this, MarksEntry.class);
+            startActivity(intent);
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(TeacherHome.this, "Error occured"+e, Toast.LENGTH_LONG).show();
+
+        }
+
     }
 
     public void practical(View view) {
@@ -82,5 +90,10 @@ public class TeacherHome extends AppCompatActivity {
         Intent intent=new Intent(TeacherHome.this, Login.class);
         startActivity(intent);
         finish();
+    }
+
+    public void viewStudentMarks(View view) {
+
+        startActivity(new Intent(TeacherHome.this, DisplayStudentsMarks.class));
     }
 }

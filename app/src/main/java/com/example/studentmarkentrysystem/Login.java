@@ -37,6 +37,11 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        startActivity(new Intent(Login.this, MarksTable.class));
+        finish();
+
+
         uname = (TextInputEditText) findViewById(R.id.mail);
         pass = (TextInputEditText) findViewById(R.id.pass);
         firebaseAuth = FirebaseAuth.getInstance();

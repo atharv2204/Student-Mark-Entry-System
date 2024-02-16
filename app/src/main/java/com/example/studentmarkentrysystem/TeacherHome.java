@@ -79,5 +79,8 @@ public class TeacherHome extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseAuth.signOut();
+        Intent intent=new Intent(TeacherHome.this, Login.class);
+        startActivity(intent);
+        finish();
     }
 }

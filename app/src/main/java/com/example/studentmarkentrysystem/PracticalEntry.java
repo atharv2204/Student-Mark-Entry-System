@@ -104,7 +104,7 @@ public class PracticalEntry extends AppCompatActivity {
 //                                        public void onSuccess(Void unused) {
 //                                            Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
 //                                        }
-//                                    }).addOnFailureListener(new OnFailureListener() {
+//                                    }).addOnFailureListener(newt OnFailureListener() {
 //                                        @Override
 //                                        public void onFailure(@NonNull Exception e) {
 //                                            Toast.makeText(PracticalEntry.this, "" + e, Toast.LENGTH_SHORT).show();

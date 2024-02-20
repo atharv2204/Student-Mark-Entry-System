@@ -97,19 +97,21 @@ public class ViewMarks extends AppCompatActivity {
                     System.out.println("Document ID: " + documentId);
 
                     // Get all fields in the document
-                    for (String fieldName : document.getData().keySet()) {
-                        // Access each field and its value
-                        Object value = document.get(fieldName);
-                        if(!prcsList.contains(fieldName) && semList.contains(fieldName)){
-                            addDataToView(fieldName, value.toString());
-                            System.out.println("Field: " + fieldName + ", Value: " + value);
+                    if(documentId.equals(email)){
+                        for (String fieldName : document.getData().keySet()) {
+                            // Access each field and its value
+                            Object value = document.get(fieldName);
+                            if(!prcsList.contains(fieldName) && semList.contains(fieldName)){
+                                addDataToView(fieldName, value.toString());
+                                System.out.println("Field: " + fieldName + ", Value: " + value);
+                            }
+                            else {
+                                continue;
+                            }
                         }
-                        else {
-                            continue;
-                        }
-                    }
 
-                    System.out.println("------------"); // Separating documents
+                        System.out.println("------------"); // Separating documents
+                    }
                 }
             } else {
                 // Handle errors

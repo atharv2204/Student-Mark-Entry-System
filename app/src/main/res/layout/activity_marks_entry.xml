@@ -99,7 +99,7 @@
             android:layout_marginTop="10dp"
             android:id="@+id/emailfld"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Email"
+            android:hint="Roll No."
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
             app:endIconMode="clear_text"
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="18sp"
-                android:inputType="textEmailAddress" />
+                android:inputType="text" />
 
 
         </com.google.android.material.textfield.TextInputLayout>

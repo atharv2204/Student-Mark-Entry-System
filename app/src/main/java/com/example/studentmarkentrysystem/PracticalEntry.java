@@ -9,14 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,20 +67,50 @@ public class PracticalEntry extends AppCompatActivity {
                         Map<String, Object> user = new HashMap<>();
                         user.put(subject, marks1Text);
                         try{
-                            db.collection("Practicals")
-                                    .document(studentemail)
-                                    .update(user).
-                                    addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(PracticalEntry.this, "" + e, Toast.LENGTH_SHORT).show();
-                                        }
-                                    });}
+                                        db.collection("Students")
+                                        .whereEqualTo("RollNo", studentemail)
+                                        .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                                                    DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
+                                                    String documentID = documentSnapshot.getId();
+                                                    db.collection("Practicals")
+                                                            .document(documentID)
+                                                            .update(user).
+                                                            addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void unused) {
+                                                                    Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            }).addOnFailureListener(new OnFailureListener() {
+                                                                @Override
+                                                                public void onFailure(@NonNull Exception e) {
+                                                                    Toast.makeText(PracticalEntry.this, "Error"  , Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            });
+
+                                                } else {
+                                                    Toast.makeText(context, "Failed"+studentemail, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+
+//                            db.collection("Practicals")
+//                                    .document(studentemail)
+//                                    .update(user).
+//                                    addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void unused) {
+//                                            Toast.makeText(PracticalEntry.this, "Marks Filled Successfully", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    }).addOnFailureListener(new OnFailureListener() {
+//                                        @Override
+//                                        public void onFailure(@NonNull Exception e) {
+//                                            Toast.makeText(PracticalEntry.this, "" + e, Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
+                                    }
                         catch (Exception e){
                             Toast.makeText(PracticalEntry.this, "Error"+e , Toast.LENGTH_SHORT).show();
                             Log.d("err",e.toString());

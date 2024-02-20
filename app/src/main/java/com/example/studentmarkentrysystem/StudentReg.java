@@ -75,12 +75,44 @@ public class StudentReg extends AppCompatActivity {
         Map<String, String> subjectsMap = new HashMap<>();
 
         // Populate the map with subjects from each semester
-        addSubjectsToMap(subjectsMap, sem1);
-        addSubjectsToMap(subjectsMap, sem2);
-        addSubjectsToMap(subjectsMap, sem3);
-        addSubjectsToMap(subjectsMap, sem4);
-        addSubjectsToMap(subjectsMap, sem5);
-        addSubjectsToMap(subjectsMap, sem6);
+        int seme=Integer.parseInt(Semester);
+        if(seme==1)
+        {
+            addSubjectsToMap(subjectsMap, sem1);
+        }
+        else if(seme==2)
+        {
+            addSubjectsToMap(subjectsMap, sem1);
+            addSubjectsToMap(subjectsMap, sem2);
+
+        }
+        else if (seme==3) {
+            addSubjectsToMap(subjectsMap, sem1);
+            addSubjectsToMap(subjectsMap, sem2);
+            addSubjectsToMap(subjectsMap, sem3);
+        }
+        else if (seme==4) {
+            addSubjectsToMap(subjectsMap, sem1);
+            addSubjectsToMap(subjectsMap, sem2);
+            addSubjectsToMap(subjectsMap, sem3);
+            addSubjectsToMap(subjectsMap, sem4);
+        }
+        else if (seme==5) {
+            addSubjectsToMap(subjectsMap, sem1);
+            addSubjectsToMap(subjectsMap, sem2);
+            addSubjectsToMap(subjectsMap, sem3);
+            addSubjectsToMap(subjectsMap, sem4);
+            addSubjectsToMap(subjectsMap, sem5);
+        }
+        else if (seme==6) {
+            addSubjectsToMap(subjectsMap, sem1);
+            addSubjectsToMap(subjectsMap, sem2);
+            addSubjectsToMap(subjectsMap, sem3);
+            addSubjectsToMap(subjectsMap, sem4);
+            addSubjectsToMap(subjectsMap, sem5);
+            addSubjectsToMap(subjectsMap, sem6);
+        }
+
 
         // Populate the map with initial values of 0
         for (String subject : prcs) {
@@ -95,6 +127,9 @@ public class StudentReg extends AppCompatActivity {
         }
         else if (Password.length() < 6) {
             pass.setError("Password Length must be greater than 5");
+        }
+        else if (Integer.parseInt(Semester) > 6 || Integer.parseInt(Semester) <0) {
+            sem.setError("Enter Valid Semester");
         }
         else{
             db.collection("Students")
